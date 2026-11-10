@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+ <defs>
+  <linearGradient id="fade" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
+   <stop stop-color="white" stop-opacity="0"/>
+   <stop offset=".32" stop-color="white" stop-opacity=".88"/>
+   <stop offset=".78" stop-color="white" stop-opacity=".75"/>
+   <stop offset="1" stop-color="white" stop-opacity=".22"/>
+  </linearGradient>
+ </defs>
+ <g fill="none" stroke="url(#fade)" stroke-linecap="round">
+  <path d="M19 123C1 102 35 96 27 79S8 62 17 48 35 26 26 7M107 120c13-23-20-28-15-46s22-18 19-38S92 23 100 6M60 126c23-16-2-25 6-38s24-16 16-37" stroke-width="10" opacity=".34"/>
+  <path d="M19 123C1 102 35 96 27 79S8 62 17 48 35 26 26 7M107 120c13-23-20-28-15-46s22-18 19-38S92 23 100 6M60 126c23-16-2-25 6-38s24-16 16-37" stroke-width="4.5"/>
+  <path d="M29 116C20 99 43 90 37 73S15 58 26 44 42 21 39 4M98 120c12-19-23-28-16-47s25-18 20-35M72 115c-9-12-13-19-6-30" stroke-width="2.4" opacity=".72"/>
+ </g>
+</svg>

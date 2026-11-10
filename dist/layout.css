@@ -1,0 +1,35 @@
+/* 2.3.3: explicit rows; preserve image proportions in every viewport. */
+.battleTable{grid-template-rows:minmax(70px,17%) minmax(100px,1fr) 32px minmax(0,1.5fr) 49px;gap:5px}
+.battleTable>.formationStage{display:grid;grid-template-rows:auto minmax(0,1fr);align-items:stretch;justify-items:center;gap:3px;padding:2px 0;overflow:hidden}
+.formationStage .formationHint{font-size:10px;line-height:1.25;min-height:13px;max-width:100%;text-align:center}
+.formationStage .formationCards{display:grid;grid-template-columns:repeat(var(--deployed,1),minmax(0,1fr));grid-template-rows:minmax(0,1fr);width:100%;height:100%;max-height:none;min-height:0;flex:none;padding:2px 5px;gap:6px;align-items:stretch}
+.formationStage .formationCards:empty{display:none}
+.formationCards .formationCard{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 17px;align-items:stretch;justify-items:stretch;width:100%;height:100%;min-width:0;min-height:0;max-width:none;aspect-ratio:auto;padding:4px;gap:2px;overflow:hidden}
+.formationCard .previewArt{display:block;position:relative;width:100%;height:100%;min-height:0;overflow:hidden}
+.formationCard .previewText{display:block;min-height:0;overflow:hidden;text-align:center}
+.formationCard .previewName{display:block!important;font-size:10px;line-height:16px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-height:none;text-align:center}
+.formationCard .previewRealm{display:none}
+.tuArt{position:relative;display:block;width:100%;height:100%;isolation:isolate;overflow:hidden}
+.tuArt .tuImage{position:absolute;inset:7%;width:86%;height:86%;display:block;object-fit:contain;object-position:center;filter:drop-shadow(0 0 5px var(--element-color));animation:tu-float 3.2s var(--float-delay) ease-in-out infinite;z-index:1}
+.tuAura{position:absolute;inset:10%;background:radial-gradient(ellipse,color-mix(in srgb,var(--element-color) 30%,transparent),transparent 70%);animation:tu-aura 2.6s ease-in-out infinite;z-index:0}
+.element-0 .tuImage{filter:sepia(.35) saturate(1.2) drop-shadow(0 0 5px #ffd96b)}.element-1 .tuImage{filter:sepia(.3) hue-rotate(68deg) saturate(1.15) drop-shadow(0 0 5px #74eab2)}.element-2 .tuImage{filter:sepia(.3) hue-rotate(153deg) saturate(1.15) drop-shadow(0 0 5px #83dcff)}.element-3 .tuImage{filter:sepia(.6) saturate(1.7) hue-rotate(335deg) drop-shadow(0 0 6px #ff8c4b)}.element-4 .tuImage{filter:sepia(.6) saturate(.9) drop-shadow(0 0 5px #d8af79)}
+@keyframes tu-float{0%,100%{transform:translateY(2px) rotate(-2deg)}50%{transform:translateY(-3px) rotate(2deg)}}@keyframes tu-aura{50%{opacity:.5;transform:scale(.9)}}
+/* A square viewport prevents the atlas from being stretched in short sockets. */
+.miniRelic>span,.miniTraining>span,.miniDao>span{display:flex!important;align-items:center;justify-content:center;min-height:0;min-width:0;max-width:none!important;aspect-ratio:auto!important;overflow:hidden}
+.miniRelic .paintedArt,.miniTraining .paintedArt,.miniDao .paintedArt{width:auto!important;height:100%!important;aspect-ratio:1;max-width:100%;flex:none}
+.battleSidebar>.score{display:grid!important;grid-template-rows:auto auto auto;align-content:start;gap:6px;overflow:hidden!important;padding:9px!important;overscroll-behavior:none}
+.score .scoreMain{display:flex!important;flex-direction:column;align-items:stretch;gap:4px;margin:0!important;padding:0!important}
+.score .scoreMain>div:first-child{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.score .scoreMain .eyebrow{font-size:8px;letter-spacing:.6px}.score .scoreMain strong{font-size:28px;line-height:1.1;margin:0;overflow-wrap:anywhere}
+.score #chainLabel{width:100%;max-width:none;text-align:left}.score #chainLabel button{font-size:11px;line-height:1.2;padding:0;max-width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.score #scoreEquation{display:block!important;flex:none;border:0;margin:0;padding:0!important;min-height:0}
+.quickTerms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;width:100%}.quickTerms>span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;background:#0c182b77;border:1px solid #d0b87530;border-radius:5px;padding:5px 2px}.quickTerms b{font-size:13px;line-height:1.1;color:#edd59b;max-width:100%;overflow-wrap:anywhere}.quickTerms small{font-size:7px;color:#a9b9b4;white-space:nowrap}
+.score #chainExplain,.score #breakdown,.score .scoreLinks{display:none!important}.score #damageSourcesPanel{min-height:0}.scoreDetail{padding:3px 0;font-size:9px;border:0;color:#b9cfc8;text-align:left}.scorePrompt{font-size:9px;color:#93aba8}
+.hurtWhite{position:fixed;inset:0;z-index:9000;pointer-events:none;background:white;opacity:0}.bossHp .bar i,.mobileHUD .bar i{transition:width .18s ease-out}
+@media(orientation:landscape) and (max-height:600px){.battleTable{grid-template-rows:minmax(48px,19%) minmax(61px,1fr) 27px minmax(0,1.4fr) 37px;gap:4px}.formationStage .formationHint{font-size:8px;min-height:10px}.formationCards .formationCard{grid-template-rows:minmax(0,1fr) 14px;padding:2px}.formationCard .previewName{font-size:8px;line-height:13px}.battleSidebar{grid-template-rows:40px minmax(85px,1fr) 120px 24px;gap:4px}.battleSidebar>.score{gap:4px;padding:6px!important}.score .scoreMain strong{font-size:24px}.score #chainLabel button{font-size:9px}.quickTerms b{font-size:11px}.quickTerms small{font-size:6px}.quickTerms>span{padding:4px 1px}.scoreDetail{font-size:8px}.score .scoreMain .eyebrow{font-size:7px}}
+@media(orientation:landscape) and (max-height:380px){.battleTable{grid-template-rows:48px minmax(54px,1fr) 25px minmax(0,1.3fr) 35px;gap:3px}.battleSidebar{grid-template-rows:35px minmax(71px,1fr) 108px 22px;gap:3px}.battleSidebar>.score{gap:3px;padding:5px!important}.score .scoreMain strong{font-size:21px}.quickTerms>span{padding:3px 1px}.scoreDetail{font-size:7px}}
+@media(orientation:portrait){.arena{grid-template-rows:30% minmax(0,1fr)}.battleSidebar{grid-template-columns:42% minmax(0,1fr);grid-template-rows:40px minmax(0,1fr) 25px;gap:4px}.battleSidebar>.score{grid-column:2;grid-row:1/-1;align-content:center;padding:7px!important;gap:7px}.quickTerms{grid-template-columns:repeat(2,minmax(0,1fr))}.quickTerms b{font-size:13px}.quickTerms small{font-size:7px}.score .scoreMain strong{font-size:25px}.score #chainLabel button{font-size:9px}.battleTable{grid-template-rows:minmax(58px,16%) minmax(74px,1fr) 27px minmax(0,2fr) 40px;gap:4px}.formationStage .formationHint{font-size:7px;min-height:10px}.formationCards .formationCard{grid-template-rows:minmax(0,1fr) 20px;padding:2px}.formationCard .previewName{font-size:7px;line-height:10px;white-space:normal;max-height:20px}.formationStage .formationCards{gap:3px;padding:1px 2px}.scoreDetail{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.tuImage,.tuAura{animation:none!important}.elementMotes{display:none}}
+.formationStage{grid-template-columns:minmax(0,1fr);justify-content:stretch}
+.battleSidebar>.score{height:auto;align-self:start}
+@media(orientation:portrait){.battleSidebar>.score{height:100%;align-self:stretch}}
